@@ -99,6 +99,14 @@ export default defineConfig({
   preview: { host: '0.0.0.0', port: 4173, allowedHosts: true },
   build: {
     outDir: 'dist',
+    /* orders.html is the staff order board: a separate page, never linked
+       from the public site */
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        orders: path.resolve(__dirname, 'orders.html')
+      }
+    },
     assetsInlineLimit: 0,
     chunkSizeWarningLimit: 1200
   }
